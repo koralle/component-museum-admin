@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache and Install
+        uses: ./.github/composite-actions/cache-and-install
+
+      - name: Run type check
+        run: pnpm run typecheck
+
+      - name: Run code check
+        run: pnpm run check
