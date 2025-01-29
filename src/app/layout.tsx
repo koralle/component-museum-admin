@@ -1,14 +1,12 @@
-import { UIProvider } from '@yamada-ui/react'
 import type { ReactNode } from 'react'
+import { Providers } from './providers'
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="ja">
       <body>
-        <UIProvider>
-          {children}
-        </UIProvider>
-       </body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
